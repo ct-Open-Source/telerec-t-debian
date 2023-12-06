@@ -25,3 +25,12 @@
     name: '{{ admin.name }}'
     groups: sudo
     append: yes
+
+- name: Create {{ docker_dir }} directory if needed
+  file:
+    path: '{{ docker_dir }}'
+    state: directory
+    owner: '{{ admin.name }}'
+    group: 'docker'
+    mode: 0775
+  tags: [ always ]
