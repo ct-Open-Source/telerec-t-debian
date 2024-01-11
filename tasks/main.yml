@@ -26,6 +26,11 @@
     groups: sudo
     append: yes
 
+- name: Create group docker
+  group:
+    name: docker
+    state: present
+
 - name: Create {{ docker_dir }} directory if needed
   file:
     path: '{{ docker_dir }}'
